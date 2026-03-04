@@ -12,6 +12,7 @@ export const useCredits = ({
 }: GetCreditsParams) => {
   return useQuery<CreditsResponse>({
     queryKey: ["credits", search, sort, order, page],
+    placeholderData: (prev) => prev,
     queryFn: () =>
       getCredits({
         search,
