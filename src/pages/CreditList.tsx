@@ -25,14 +25,13 @@ const CreditList = () => {
     setOrder(value);
     setPage(1);
   };
-  const { data, isLoading, isError } = useCredits({
+  const { data, isError } = useCredits({
     search: search || undefined,
     sort,
     order,
     page,
   });
 
-  if (isLoading) return <p className="text-white">Cargando...</p>;
   if (isError) return <p className="text-red-500">Error cargando créditos</p>;
 
   const creditsArray = Array.isArray(data) ? data : data?.data || [];
